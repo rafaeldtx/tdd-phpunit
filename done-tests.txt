@@ -1,5 +1,7 @@
 Auction (Tdd\Auction\Test\Model\Auction)
  [x] Bets should be instancied correctly
+ [x] Should limit bets by user
+ [x] Not permitted bets sequences
 
 Bet (Tdd\Auction\Test\Model\Bet)
  [x] Should be instancied correctly

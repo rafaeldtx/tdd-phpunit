@@ -18,7 +18,15 @@ class Auction {
 
   public function receiveBet(Bet $bet)
   {
-    $this->bets[] = $bet;
+    $user = $bet->getUser();
+    $LastBetsKey = array_key_last($this->bets);
+
+    if(!empty($this->bets) &&
+       $user == $this->bets[$LastBetsKey]->getUser()) {
+      return;
+    } else if ($this->totalBetsByUser($user) < 5) {
+      $this->bets[] = $bet;
+    }
   }
 
   public function getBets()
@@ -29,5 +37,15 @@ class Auction {
   public function getDescription()
   {
     return $this->description;
+  }
+
+  private function totalBetsByUser(User $user)
+  {
+    return array_reduce($this->bets, function(int $userBetsCount, Bet $bet) use($user) {
+      if ($bet->getUser() == $user) {
+        return $userBetsCount + 1;
+      }
+      return $userBetsCount;
+    }, 0);
   }
 }
