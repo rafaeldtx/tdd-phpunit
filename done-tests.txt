@@ -1,3 +1,6 @@
+Auction (Tdd\Auction\Test\Model\Auction)
+ [x] Bets should be instancied correctly
+
 Bet (Tdd\Auction\Test\Model\Bet)
  [x] Should be instancied correctly
 
