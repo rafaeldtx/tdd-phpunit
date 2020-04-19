@@ -1,0 +1,13 @@
+<phpunit
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/6.3/phpunit.xsd"
+  colors="true"
+>
+  <testsuite name="unity-tests">
+    <directory>tests</directory>
+  </testsuite>
+  <logging>
+    <log type="testdox-html" target="done-tests.html"/>
+    <log type="testdox-text" target="done-tests.txt"/>
+  </logging>
+</phpunit>
