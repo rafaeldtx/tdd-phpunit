@@ -1,3 +1,6 @@
+Bet (Tdd\Auction\Test\Model\Bet)
+ [x] Should be instancied correctly
+
 User (Tdd\Auction\Test\Model\User)
  [x] Should set user name
 
