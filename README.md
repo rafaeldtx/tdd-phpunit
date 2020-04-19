@@ -23,4 +23,8 @@ Execute the following steps:
     }
 This configuration define a mapping from namespaces to path and a require-dev for use phpunit
 
-- run in folder terminal `composer dump` ou `composer dumpautoload` - This commands has the same effect to generate that *autoload* file configuration
+- run in folder terminal `composer dump` ou `composer dumpautoload` - This commands has the same effect to run *autoload* file configuration
+
+- In terminal run `composer install` for install the dev dependencies of composer.json
+
+
