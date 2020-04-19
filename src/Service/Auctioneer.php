@@ -9,6 +9,9 @@ class Auctioneer {
 
   public function inspect(Auction $auction)
   {
+    if (empty($auction->getBets())) {
+      throw new \DomainException('Not possible inspect empty bets');
+    }
     $this->auction = $auction;
   }
 

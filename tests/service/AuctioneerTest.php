@@ -32,6 +32,19 @@ class AuctioneerTest extends TestCase
     }
   }
 
+  /**
+   * @dataProvider setBets
+  */
+  public function testThrowExceptionForEmptyInpection()
+  {
+    $auction = new Auction('Moto 0km');
+    $auctioneer = new Auctioneer();
+
+    self::expectException(\DomainException::class);
+    self::expectExceptionMessage('Not possible inspect empty bets');
+    $auctioneer->inspect($auction);
+  }
+
   public function setBets()
   {
     $user1 = new User('joao');

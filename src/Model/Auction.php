@@ -23,10 +23,12 @@ class Auction {
 
     if(!empty($this->bets) &&
        $user == $this->bets[$LastBetsKey]->getUser()) {
-      return;
-    } else if ($this->totalBetsByUser($user) < 5) {
-      $this->bets[] = $bet;
+      throw new \DomainException("Not permitted bet sequence for user");
+    } else if ($this->totalBetsByUser($user) >= 5) {
+      throw new \DomainException("Not permitted more than 5 bets for user");
     }
+
+    $this->bets[] = $bet;
   }
 
   public function getBets()

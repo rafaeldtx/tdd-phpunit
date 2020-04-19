@@ -1,7 +1,7 @@
 Auction (Tdd\Auction\Test\Model\Auction)
  [x] Bets should be instancied correctly
- [x] Should limit bets by user
- [x] Not permitted bets sequences
+ [x] Throw exeception for limit bets by user
+ [x] Throw exeception for not permitted bets sequences
 
 Bet (Tdd\Auction\Test\Model\Bet)
  [x] Should be instancied correctly
@@ -12,4 +12,6 @@ User (Tdd\Auction\Test\Model\User)
 Auctioneer (Tdd\Auction\Test\Service\Auctioneer)
  [x] Should get greater bets with data set "limited to 1 bet"
  [x] Should get greater bets with data set "limited to 2 bets"
+ [x] Throw exception for empty inpection with data set "limited to 1 bet"
+ [x] Throw exception for empty inpection with data set "limited to 2 bets"
 

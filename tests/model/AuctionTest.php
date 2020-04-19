@@ -21,7 +21,7 @@ class AuctionTest extends TestCase {
     self::assertEquals($auction->getDescription(), 'Fiat Uno 0km');
   }
 
-  public function testShouldLimitBetsByUser()
+  public function testThrowExeceptionForLimitBetsByUser()
   {
     $user1 = new User('Joao');
     $user2 = new User('Maria');
@@ -39,25 +39,23 @@ class AuctionTest extends TestCase {
     $auction->receiveBet(new Bet($user1, 5000));
     $auction->receiveBet(new Bet($user2, 5500));
 
+    self::expectException(\DomainException::class);
+    self::expectExceptionMessage('Not permitted more than 5 bets for user');
+
     $auction->receiveBet(new Bet($user1, 6000));
-    $auction->receiveBet(new Bet($user2, 6500));
-
-    $allBets = $auction->getBets();
-
-    self::assertCount(10, $allBets);
-    self::assertEquals($allBets[array_key_last($allBets)]->getBetValue(), 5500);
   }
 
-  public function testNotPermittedBetsSequences()
+  public function testThrowExeceptionForNotPermittedBetsSequences()
   {
     $user1 = new User('Joao');
 
     $auction = new Auction('Nissan Kicks');
 
     $auction->receiveBet(new Bet($user1, 1000));
-    $auction->receiveBet(new Bet($user1, 1500));
 
-    self::assertCount(1, $auction->getBets());
-    self::assertEquals($auction->getBets()[0]->getBetValue(), 1000);
+    self::expectException(\DomainException::class);
+    self::expectExceptionMessage('Not permitted bet sequence for user');
+
+    $auction->receiveBet(new Bet($user1, 1500));
   }
 }
