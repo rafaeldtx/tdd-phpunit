@@ -10,6 +10,6 @@ class UserTest extends TestCase {
   {
     $user = new User('Rafael');
 
-    self::assertEquals($user->name, 'Rafael');
+    self::assertEquals($user->getName(), 'Rafael');
   }
 }

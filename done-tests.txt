@@ -1,0 +1,3 @@
+User (Tdd\Auction\Test\Model\User)
+ [x] Should set user name
+
