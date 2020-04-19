@@ -7,3 +7,7 @@ Bet (Tdd\Auction\Test\Model\Bet)
 User (Tdd\Auction\Test\Model\User)
  [x] Should set user name
 
+Auctioneer (Tdd\Auction\Test\Service\Auctioneer)
+ [x] Should get greater bets with data set "limited to 1 bet"
+ [x] Should get greater bets with data set "limited to 2 bets"
+
